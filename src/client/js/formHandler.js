@@ -3,8 +3,9 @@ export async function handleSubmit(event) {
 
   // check what text was put into the form field
   let formText = document.getElementById('name').value
+// validation of the url 
+  if (isValidUrl(formText)) {
 
-  if (formText) {
     try {
       const responseData = await sendDataToServer('/analysis', { input: formText});
       console.log('Response from server:', responseData);
@@ -18,17 +19,19 @@ export async function handleSubmit(event) {
       console.log('Error sending user input to server:', error);
     }
     console.log(sendDataToServer('/analysis', { input: formText }));
+  } else {
+    alert("Invalid URL");
   }
-  console.log("::: Form Submitted :::")
-  document.getElementById('form-box').reset();
-  fetch('http://localhost:3000/test')
-    .then(res => res.json())
-    .then(function (res) {
-      document.getElementById('mockAPI').innerHTML = res.message
-    })
+}
 
-
-
+// function to check user input is a valid URL 
+export function isValidUrl(url) {
+  try {
+      new URL(url);
+      return true;
+  } catch (error) {
+      return false;
+  }
 }
 
 // Function to send a POST request to the server
