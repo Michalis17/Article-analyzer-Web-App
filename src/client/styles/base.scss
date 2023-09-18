@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(-45deg, hsl(202, 83%, 48%) 0%, #ffffff 50%, hsl(202, 83%, 48%) 100%);
+    background-size: 200% 200%;
+    animation: animateWaves 10s linear infinite;
+}
+
+@keyframes animateWaves {
+    0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0 0;
+      }
+  }
+
+main {
+    flex: 2;
+}
+section {
+    max-width: 800px;
+    margin: 50px auto;
+}
