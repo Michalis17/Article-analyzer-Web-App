@@ -20,10 +20,51 @@ body {
       }
   }
 
-main {
-    flex: 2;
+.form {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
 }
-section {
-    max-width: 800px;
-    margin: 50px auto;
+.result {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#results {
+  width: 50%;
+  border: 5px solid red;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  overflow-y: scroll;
+  align-items: center;
+}
+// loader style 
+.loader {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  border-radius: 50%;
+  background: #000000;
+  animation: wave 1s ease-in infinite;
+  display: none;
+}
+
+@keyframes wave {
+ 0% {  box-shadow:
+  0 0 0 0px rgba(255, 255,255, 1),
+  0 0 0 20px rgba(255, 255,255, 0.2),
+  0 0 0 40px rgba(255, 255,255, 0.6),
+  0 0 0 60px rgba(255, 255,255, 0.4),
+  0 0 0 80px rgba(255, 255,255, 0.2)
+  }
+  100% {  box-shadow:
+    0 0 0 80px rgba(255, 255,255, 0),
+    0 0 0 60px rgba(255, 255,255, 0.2),
+    0 0 0 40px rgba(255, 255,255, 0.4),
+    0 0 0 20px rgba(255, 255,255, 0.6),
+    0 0 0 0px rgba(255, 255,255, 1)
+  }
 }

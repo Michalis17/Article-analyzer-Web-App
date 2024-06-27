@@ -1,60 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Test</title>
-        
-        
-        
-    </head>
-
-    <body>
-
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
-        </header>
-
-
-        <main>
-            <section>
-                <form id="form-box" onsubmit="return handleSubmit(event)">
-                    <div class="input-container">
-                        <input type="text" id="name" name="input" required="">
-                        <label for="input" class="label">Enter the URL of the article you would like a Sentiment Analysis for:</label>
-                        <div class="underline"></div>
-                      </div>
-
-                    <input class="button" type="submit" value="SUBMIT" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
-            </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results">
-                    <div id="polarity"></div> 
-                    <div id="subjectivity"></div> 
-                    <div id="content"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    <main>
+        <section class="form">
+            <form id="form-box" onsubmit="return handleSubmit(event)">
+                <div class="input-container">
+                    <label for="input" class="label">Find an online article to perform a sentiment analysis on </label>
+                    <input type="text" id="name" name="input" required="" placeholder="Enter the URL">
+                    <div class="underline"></div>
                 </div>
-            </section>
-        </main>
+                <input class="button" type="submit" value="SUBMIT" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return handleSubmit(event)">
+            </form>
+        </section>
+        <section class="result">
+            <strong>Results:</strong>
+            <span class="loader" id="loader"></span>
+            <div id="results">
+                <!-- ! style this better -->
+                 <h3>Polarity</h3>
+                <div id="polarity"></div>
+                <h3>Subjectivity</h3>
+                <div id="subjectivity"></div>
+                <h3>Key Parts</h3>
+                <div id="content"></div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
 
-        <footer>
-            <p>This is a footer</p>
-        </footer>
-
-        <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js');
-                });
-            }
-        </script>
-    </body>
 </html>

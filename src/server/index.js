@@ -8,7 +8,7 @@ dotenv.config();
 // API STUFF
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 const apiKEY = process.env.API_KEY;
-
+console.log(apiKEY);
 const app = express()
 
 // Middleware to parse JSON data from the request body
